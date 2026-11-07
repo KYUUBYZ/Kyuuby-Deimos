@@ -1,0 +1,72 @@
+name: Aggiorna BOM nel README
+
+on:
+  push:
+    paths:
+      - 'BOM.csv'
+  workflow_dispatch:
+
+jobs:
+  update-readme-bom:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Clona il repository
+        uses: actions/checkout@v4
+
+      - name: Configura Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Genera Tabella Markdown da BOM.csv
+        run: |
+          python -c "
+          import csv
+
+          output = []
+          with open('BOM.csv', mode='r', encoding='utf-8') as f:
+              reader = list(csv.reader(f))
+              if reader:
+                  header = reader[0]
+                  output.append('| ' + ' | '.join(header) + ' |')
+                  output.append('| ' + ' | '.join(['---'] * len(header)) + ' |')
+                  
+                  for row in reader[1:]:
+                      if not row or not row[0].strip():
+                          continue
+                      formatted_row = []
+                      for cell in row:
+                          cell_str = cell.strip()
+                          if cell_str.startswith('http'):
+                              formatted_row.append(f'[Link]({cell_str})')
+                          else:
+                              formatted_row.append(cell_str)
+                      output.append('| ' + ' | '.join(formatted_row) + ' |')
+
+          bom_table = '\n'.join(output)
+
+          with open('README.md', 'r', encoding='utf-8') as f:
+              readme = f.read()
+
+          start_tag = '<!--START_SECTION:BOM-TABLE-->'
+          end_tag = '<!--END_SECTION:BOM-TABLE-->'
+
+          if start_tag in readme and end_tag in readme:
+              before = readme.split(start_tag)[0]
+              after = readme.split(end_tag)[1]
+              new_readme = f'{before}{start_tag}\n{bom_table}\n{end_tag}{after}'
+              with open('README.md', 'w', encoding='utf-8') as f:
+                  f.write(new_readme)
+          "
+
+      - name: Sincronizza e committa le modifiche
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull origin ${{ github.ref_name }} --rebase || true
+          git add README.md
+          git diff --quiet && git diff --cached --quiet || git commit -m "docs: aggiorna automaticamente la tabella BOM nel README"
+          git push origin ${{ github.ref_name }}
