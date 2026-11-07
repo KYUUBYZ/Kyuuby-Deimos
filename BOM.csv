@@ -13,12 +13,10 @@ Item,Qty,Supplier,Cost/item,Total Cost,link
 SX1280IMLTRT,1,Unikeyic,$4.19,$4.19,https://www.unikeyic.com/products/wireless-transceiver/sx1280imltrt/10812057.html?sku=1003001031598558
 USB_C_Receptacle_USB2.0_16P,1,Unikeyic,$0.06,$0.06,https://www.unikeyic.com/products/usb-dvi-hdmi-connectors/type-c-16pin-2md-073/22541599.html?sku=1003001021518676
 15uH,1,Unikeyic,$0.03,$0.03,https://www.unikeyic.com/products/chip-inductor/mlz2012m150wt000/23579160.html?sku=1003001444225920
-LED THT,1,,$0.00,$0.00,
 10k,4,Unikeyic,$0.00,$0.00,https://www.unikeyic.com/products/surface-mount-resistors/rtt051002ftp/8868151.html?sku=1003001017270744
 5.1k,2,Unikeyic,$0.00,$0.00,https://www.unikeyic.com/products/surface-mount-resistors/sc0805j5101f4anrh/691840803.html?sku=1003001042867065
 0R,1,Unikeyic,$0.01,$0.01,https://www.unikeyic.com/products/surface-mount-resistors/rtt050000ftp/30082103.html?sku=1003001013772933
 1k,1,Unikeyic,$0.00,$0.00,https://www.unikeyic.com/products/surface-mount-resistors/0805w8f1001t5e/1478193.html?sku=1003001012328861
-SW_Push_Dual,1,,$0.00,$0.00,
 STM32F405RGTx,1,LCSC,$6.88,$6.88,https://www.lcsc.com/product-detail/C15742.html
 BMI270,1,Unikeyic,$1.12,$1.12,https://www.unikeyic.com/products/accelerometers/bmi270/35035999.html?sku=1003001445188098
 W25Q128DR-TD,1,LCSC,$2.52,$2.52,https://www.lcsc.com/product-detail/C49211308.html
