@@ -37,6 +37,8 @@ A normal quadcopter drone's flight controller. this is only the V1, but in the f
 It uses an STM32F405 as MCU, wit ha 8MHz crystal as OSC. It uses a SPI3 protocol to communicate with the SX1280 ( the radio module ) and SPI1 protocol for the BMI270, the IMU (Gyroscope and Accelerometer).
 Its only purpose for now is to be a test to see if my design can works, so in the firmware there won't be anything difficult.
 
+You will find a "detailed" (hope its detailed enough) guide in /Firmware.
+
 # Schematic: 
 <img width="1478" height="839" alt="image" src="https://github.com/user-attachments/assets/d644e55b-9af6-4cb6-8fe1-a8b0d4084b8b" />
 
