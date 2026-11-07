@@ -1,9 +1,9 @@
-# Kyuuby Deimos v1 - bring-up test
+# Kyuuby Deimos v1 - base test
 
 Two files (`bringup.c`, `bringup.h`) to add to an STM32CubeIDE project, if you dont know how to use the STM32CubeIDE, search it up.
 The test reads the MCU, IMU, flash and radio, and prints a report over the USB virtual serial port.
 
-## 1. CubeMX / CubeIDE project
+# 1. CubeMX / CubeIDE project
 
 1. **New STM32 Project** -> select `STM32F405RGTx`.
 2. **System Core -> RCC**: High Speed Clock (HSE) = `Crystal/Ceramic Resonator`.
@@ -16,7 +16,7 @@ The test reads the MCU, IMU, flash and radio, and prints a report over the USB v
 7. You do not need to enable SPI, GPIO or anything else: `bringup.c` configures them itself.
 8. Generate the code.
 
-## 2. Add the files
+2. Add the files : 
 
 - `bringup.c` -> `Core/Src/`
 - `bringup.h` -> `Core/Inc/`
@@ -44,14 +44,8 @@ In `Core/Src/main.c`:
 
 Build the project (hammer icon) and keep the `.elf` / `.bin` / `.hex` generated in `Debug/`.
 
-## 3. Load the firmware over USB (DFU)
 
-1. Hold the button connected to BOOT0 **while plugging in the USB cable**.
-2. Open **STM32CubeProgrammer**, select `USB`, and press `Connect`.
-3. Open the `.bin` or `.hex` file (address `0x08000000` for the `.bin`) and press `Download`.
-4. Unplug and replug the USB **without** pressing the button: the program starts.
-
-## 4. Read the report
+3. Read the report
 
 The board shows up as "STMicroelectronics Virtual COM Port".
 Open the port with PuTTY, the Arduino Serial Monitor, `screen` or similar (the baud rate does not matter).
@@ -73,7 +67,7 @@ Note: the report text printed by `bringup.c` is currently in Italian (for exampl
 `RISULTATO`, `atteso`, `letture errate`). The output above is only a translation for
 reference; the actual strings are the ones in the source file, im sorry, but it works better for me (as italian).
 
-## How to read a FAIL
+How to read a FAIL
 
 | Line | Symptom | What to check |
 |---|---|---|
