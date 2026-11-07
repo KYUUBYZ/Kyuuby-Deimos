@@ -1,6 +1,6 @@
 # Kyuuby Deimos v1 - bring-up test
 
-Two files (`bringup.c`, `bringup.h`) to add to an STM32CubeIDE project.
+Two files (`bringup.c`, `bringup.h`) to add to an STM32CubeIDE project, if you dont know how to use the STM32CubeIDE, search it up.
 The test reads the MCU, IMU, flash and radio, and prints a report over the USB virtual serial port.
 
 ## 1. CubeMX / CubeIDE project
@@ -71,7 +71,7 @@ RESULT: 4/4 tests passed
 
 Note: the report text printed by `bringup.c` is currently in Italian (for example
 `RISULTATO`, `atteso`, `letture errate`). The output above is only a translation for
-reference; the actual strings are the ones in the source file.
+reference; the actual strings are the ones in the source file, im sorry, but it works better for me (as italian).
 
 ## How to read a FAIL
 
@@ -84,13 +84,6 @@ reference; the actual strings are the ones in the source file.
 | RADIO | FW_VERSION `0xFFFF` / `0x0000` | NSS, SCK, MISO, power supply |
 
 A FAIL on one line does not block the others: each test is independent.
-
-## Notes
-
-- **Flash**: on the first round the test erases and rewrites the last 4 kB sector (`0xFFF000`), and does not repeat until the next reset. To disable it, set `FLASH_RW_TEST 0` in `bringup.c`.
-- **IMU**: the `INFO` line (accelerometer and gyroscope) is informational and does not count toward the result. A fully working BMI270 needs its configuration file to be loaded, which is not included here.
-- **Radio**: `GetStatus` and the version register are read after a hardware reset. Nothing is transmitted over the air.
-- The `INT1` (PC4) and `DIO1` (PB8) lines are only read as logic levels, not tested as interrupts.
 
 ## Pins used
 
