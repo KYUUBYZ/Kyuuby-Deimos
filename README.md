@@ -28,7 +28,7 @@
 | Antenna | 1 | LCSC | $0.37 | $0.37 | [Link](https://www.lcsc.com/product-detail/C19192917.html) |
 | 8MHz | 1 | Unikeyic | $0.09 | $0.09 | [Link](https://www.unikeyic.com/products/crystals/xc32m4-8-000-f20njdt/688055058.html?sku=1003001042451847) |
 | 52MHz | 1 | LCSC | $0.12 | $0.12 | [Link](https://www.lcsc.com/product-detail/C7294606.html) |
-| Estimated total shipping | 1 |  |  | $0.00 |  |
+| Estimated total shipping | 1 |  |  | $17.00 |  |
 <!--END_SECTION:BOM-TABLE-->
 
 
